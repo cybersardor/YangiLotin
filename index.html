@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yangi lotin, eski lotin va kirill konvertori | YangiLotin.uz</title>
+<meta name="description" content="Yangi alifbo (Ş, Ç, Ö, Ğ), eski lotin va kirill orasida matnni bepul va tez oʻgiring. Matn serverga yuborilmaydi.">
+<link rel="canonical" href="https://yangilotin.uz/">
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YangiLotin.uz">
+<meta property="og:locale" content="uz_UZ">
+<meta property="og:url" content="https://yangilotin.uz/">
+<meta property="og:title" content="Yangi lotin, eski lotin va kirill konvertori">
+<meta property="og:description" content="Yangi alifbo (Ş, Ç, Ö, Ğ), eski lotin va kirill orasida bir zumda oʻgiring.">
+<meta property="og:image" content="https://yangilotin.uz/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yangi lotin, eski lotin va kirill konvertori">
+<meta name="twitter:description" content="Yangi alifbo (Ş, Ç, Ö, Ğ), eski lotin va kirill orasida bir zumda oʻgiring.">
+<meta name="twitter:image" content="https://yangilotin.uz/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"YangiLotin.uz","url":"https://yangilotin.uz/","description":"Matnlarni yangi lotin alifbosi (Ş, Ç, Ö, Ğ), eski lotin va kirill yozuvlari orasida oʻgiruvchi bepul onlayn konvertor.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":["uz","ru"],"offers":{"@type":"Offer","price":"0","priceCurrency":"UZS"}}
+</script>
+<style>
+:root{--bg1:#e8f1ee;--bg2:#f6efe3;--card:rgba(255,255,255,.68);--bd:rgba(15,90,80,.16);--tx:#10231f;--mut:#5b716b;--ac:#0f766e;--acs:rgba(15,118,110,.12);--opt:#fff}
+html.dark{--bg1:#07151a;--bg2:#10121f;--card:rgba(20,34,40,.58);--bd:rgba(255,255,255,.1);--tx:#e6f0ed;--mut:#8fa8a1;--ac:#5eead4;--acs:rgba(94,234,212,.14);--opt:#142228}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light}html.dark{color-scheme:dark}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--tx);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased;background:radial-gradient(900px 500px at 10% -10%,var(--bg1),transparent 70%),radial-gradient(800px 500px at 100% 0,var(--bg2),transparent 70%),var(--bg1);background-attachment:fixed;transition:background .3s,color .3s}
+button,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+.wrap{max-width:72rem;margin:0 auto;padding:1.5rem 1rem}
+.glass{background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-radius:18px;transition:background .3s,border-color .3s}
+.mut{color:var(--mut)}
+.row{display:flex;flex-wrap:wrap;align-items:center}
+.top{justify-content:space-between;gap:.75rem;margin-bottom:1.5rem}
+h1{margin:0;font-size:1.5rem;line-height:2rem;font-weight:700;letter-spacing:-.025em}
+.badge{display:inline-block;background:var(--acs);color:var(--ac);border:1px solid var(--bd);border-radius:999px;padding:.2rem .7rem;font-size:.75rem;font-weight:600}
+.ctl{padding:.75rem;margin-bottom:1.25rem;column-gap:1rem;row-gap:.75rem}
+.grp{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.sm{font-size:.875rem}
+.seg{padding:.35rem .8rem;border-radius:10px;font-size:.85rem;font-weight:500;color:var(--mut);transition:all .2s;white-space:nowrap}
+.seg:hover{color:var(--tx)}
+.seg.on{background:var(--ac);color:#fff}
+html.dark .seg.on{color:#042f2e}
+.segbar{display:inline-flex;gap:2px;padding:3px;border-radius:13px;background:var(--acs);flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .8rem;border-radius:10px;font-size:.85rem;font-weight:500;border:1px solid var(--bd);transition:all .2s;color:var(--tx);background:transparent}
+.btn:hover{background:var(--acs);border-color:var(--ac)}
+.btn:focus-visible,.seg:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.sel{position:relative;padding-right:.6rem}
+.sel select{appearance:none;-webkit-appearance:none;background:transparent;border:0;outline:0;cursor:pointer;font-size:.85rem;font-weight:500;padding:.1rem .2rem}
+.sel select option{background:var(--opt);color:var(--tx)}
+.sel:focus-within{outline:2px solid var(--ac);outline-offset:2px}
+i[data-i]{display:inline-flex}
+.panels{display:grid;gap:1.25rem}
+.panel{display:flex;flex-direction:column;overflow:hidden}
+.ph{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;padding:.75rem 1rem 0}
+.ph.end{justify-content:flex-end}
+.acts{display:flex;gap:.5rem;flex-wrap:wrap}
+textarea{display:block;width:100%;height:16rem;background:transparent;resize:none;border:0;outline:0;font-size:1.05rem;line-height:1.65;padding:1rem 1.1rem}
+textarea::placeholder{color:var(--mut);opacity:.7}
+.letters{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:0 1rem .6rem}
+.lt{min-width:2.2rem;justify-content:center;padding:.3rem .55rem;font-size:1rem;font-weight:600}
+.cnt{padding:0 1rem .75rem;font-size:.875rem;color:var(--mut)}
+.cards{display:grid;gap:1.25rem;margin-top:1.25rem}
+.card{padding:1rem}
+.chead{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;gap:.5rem}
+.ct{font-weight:600}
+.cs{font-size:.75rem;color:var(--mut)}
+.qv{white-space:pre-wrap;word-break:break-word;max-height:11rem;overflow:auto;line-height:1.6}
+.qv:empty::before{content:"\2014";color:var(--mut)}
+footer{text-align:center;font-size:.75rem;margin-top:1.5rem;color:var(--mut)}
+.arrow{display:none}
+@media (min-width:640px){.wrap{padding-top:2rem;padding-bottom:2rem}h1{font-size:1.875rem;line-height:2.25rem}.ctl{padding:1rem}textarea{height:18rem}}
+@media (min-width:768px){.panels{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}.arrow{display:inline-flex}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.seo{padding:1.25rem;margin-top:1.25rem}
+.seo h2{margin:0 0 .5rem;font-size:1.25rem;line-height:1.75rem}
+.seo p{margin:.4rem 0}
+.seo a{color:var(--ac)}
+.tw{overflow-x:auto;margin:.75rem 0}
+.seo table{width:100%;border-collapse:collapse;font-size:.95rem}
+.seo th,.seo td{padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}
+.seo th{color:var(--mut);font-weight:600}
+.seo details{border-top:1px solid var(--bd);padding:.6rem 0}
+.seo summary{cursor:pointer;font-weight:600}
+.seo details p{margin:.4rem 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="row top">
+    <div class="row" style="gap:.75rem">
+      <h1 data-t="title">Oʻzbek yozuv konvertori</h1>
+      <span class="badge" data-t="badge">Rasmiy 2026 alifbo islohoti qoʻllab-quvvatlanadi</span>
+    </div>
+    <div class="row" style="gap:.5rem">
+      <label class="btn sel" title="Til / Язык / Language"><i data-i="globe"></i>
+        <select id="lang" aria-label="Interface language / Interfeys tili / Язык интерфейса">
+          <option value="uz">🇺🇿 Oʻzbekcha (Lotin)</option>
+          <option value="cy">🇺🇿 Ўзбекча (Кирилл)</option>
+          <option value="ru">🇷🇺 Русский</option>
+        </select><span class="mut" aria-hidden="true">▾</span>
+      </label>
+      <button id="theme" class="btn"><i data-i="sun" id="ticon"></i><span id="tlabel"></span></button>
+    </div>
+  </header>
+
+  <section class="glass row ctl">
+    <div class="grp"><span class="mut sm" data-t="from">Qayerdan</span><div id="srcBar" class="segbar"></div></div>
+    <span class="mut arrow"><i data-i="swap"></i></span>
+    <div class="grp"><span class="mut sm" data-t="to">Qayerga</span><div id="tgtBar" class="segbar"></div></div>
+  </section>
+
+  <main class="panels">
+    <div class="glass panel">
+      <div class="ph">
+        <span id="det" class="badge"></span>
+        <div class="acts">
+          <button id="sample" class="btn" data-t="example">Misol</button>
+          <label class="btn" style="cursor:pointer" tabindex="0"><i data-i="upload"></i><span data-t="upload">.txt yuklash</span><input id="file" type="file" accept=".txt,text/plain" hidden></label>
+          <button id="clear" class="btn"><i data-i="x"></i><span data-t="clear">Tozalash</span></button>
+        </div>
+      </div>
+      <textarea id="in" spellcheck="false" data-ph="phIn" placeholder="Matnni shu yerga yozing yoki joylashtiring." aria-label="Input"></textarea>
+      <div class="letters" id="letters" role="toolbar" aria-label="Ö Ğ Ş Ç">
+        <span class="mut sm" data-t="letters">Yangi harflar:</span>
+      </div>
+      <div class="cnt" id="cnt"></div>
+    </div>
+
+    <div class="glass panel">
+      <div class="ph end">
+        <div class="acts">
+          <button id="swap" class="btn"><i data-i="swap"></i><span data-t="swap">Almashtirish</span></button>
+          <button id="copy" class="btn"><i data-i="copy"></i><span class="lb" data-t="copy">Nusxalash</span></button>
+          <button id="dl" class="btn"><i data-i="download"></i><span data-t="dl">Yuklab olish (.txt)</span></button>
+        </div>
+      </div>
+      <textarea id="out" readonly data-ph="phOut" placeholder="Oʻgirilgan matn shu yerda chiqadi." aria-label="Output"></textarea>
+      <div class="cnt" id="ocnt"></div>
+    </div>
+  </main>
+
+  <section class="cards" aria-label="Scripts">
+    <div class="glass card">
+      <div class="chead"><div><div class="ct" data-t="new">Yangi Lotin</div><div class="cs" data-t="subNew">2026 islohoti: Ş, Ç, Ö, Ğ</div></div><button class="btn qcopy" data-t-el="q-new" aria-label="Copy"><i data-i="copy"></i></button></div>
+      <div id="q-new" class="qv"></div>
+    </div>
+    <div class="glass card">
+      <div class="chead"><div><div class="ct" data-t="old">Eski Lotin</div><div class="cs" data-t="subOld">1995 standarti: Sh, Ch, Oʻ, Gʻ</div></div><button class="btn qcopy" data-t-el="q-old" aria-label="Copy"><i data-i="copy"></i></button></div>
+      <div id="q-old" class="qv"></div>
+    </div>
+    <div class="glass card">
+      <div class="chead"><div><div class="ct" data-t="cyr">Кирилл</div><div class="cs" data-t="subCyr">Ў, Ғ, Ш, Ч, Ё, Ю, Я</div></div><button class="btn qcopy" data-t-el="q-cyr" aria-label="Copy"><i data-i="copy"></i></button></div>
+      <div id="q-cyr" class="qv"></div>
+    </div>
+  </section>
+
+  <section class="glass seo" lang="uz" aria-labelledby="seoh">
+    <h2 id="seoh">Yangi alifbo va eski alifbo: farqi nima?</h2>
+    <p>Lotin yozuviga asoslangan oʻzbek alifbosi hozir 26 ta harf va 3 ta harf birikmasidan iborat. Qonunga koʻra, u 28 ta harf va 1 ta tutuq belgisidan tashkil topadi: ikki belgi bilan yoziladigan toʻrtta tovush bitta harfga oʻtkaziladi. Oʻzgarish Oliy Majlis Qonunchilik palatasida 2026-yil 7-iyulda qabul qilingan va 10-sentabrda Senatda maʼqullangan.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Eski lotin (1995)</th><th>Yangi lotin</th><th>Кирилл</th><th>Misol</th></tr></thead>
+      <tbody>
+        <tr><td>Sh sh</td><td>Ş ş</td><td>Ш ш</td><td>shaxs ➔ şaxs ➔ шахс</td></tr>
+        <tr><td>Ch ch</td><td>Ç ç</td><td>Ч ч</td><td>choy ➔ çoy ➔ чой</td></tr>
+        <tr><td>Oʻ oʻ</td><td>Ö ö</td><td>Ў ў</td><td>oʻzbek ➔ özbek ➔ ўзбек</td></tr>
+        <tr><td>Gʻ gʻ</td><td>Ğ ğ</td><td>Ғ ғ</td><td>gʻalaba ➔ ğalaba ➔ ғалаба</td></tr>
+      </tbody></table></div>
+    <h2>Koʻp beriladigan savollar</h2>
+    <details><summary>Eski lotin va yangi lotin oʻrtasida asosiy farq nima?</summary><p>Eski lotinda Sh, Ch, Oʻ va Gʻ ikki belgi bilan yoziladi. Yangi lotinda ular Ş, Ç, Ö va Ğ harflari bilan almashtiriladi. Qolgan harflar oʻzgarmaydi.</p></details>
+    <details><summary>Eski hujjatlar kuchini yoʻqotadimi?</summary><p>Qonun matniga koʻra, u kuchga kirgunga qadar amaldagi alifbo asosida rasmiylashtirilgan hujjatlar, milliy valyuta va qimmatli qogʻozlar muomalada qoladi.</p></details>
+    <details><summary>Ş, Ç, Ö, Ğ harflarini qanday yozaman?</summary><p>Konvertordagi matn maydoni ostidagi harf tugmalaridan foydalaning yoki natijani nusxalang. Doimiy yozish uchun kompyuter yoki telefonga turk (Turkish Q) klaviatura raskladkasini qoʻshish mumkin: unda bu harflar bor.</p></details>
+    <details><summary>Kirilldan lotinga oʻgirish qanday ishlaydi?</summary><p>Matn avval eski lotinga, keyin tanlangan yozuvga oʻtkaziladi. «Е» harfi soʻz boshida va unlidan keyin «Ye», undoshdan keyin «E» boʻladi. Bosh harflar saqlanadi: САРМАЙ ➔ SARMAY, Шахс ➔ Şaxs.</p></details>
+    <details><summary>Matnim serverga yuboriladimi?</summary><p>Yoʻq. Barcha oʻgirish faqat sizning brauzeringizda bajariladi.</p></details>
+  </section>
+
+  <footer data-t="footer">Matn faqat brauzeringizda oʻgiriladi. Hech narsa yuborilmaydi.</footer>
+</div>
+
+<script>
+/* ============ Transliteration engine ============ */
+const APOS = /['ʻʼ‘’`´ʹ]/;
+const CYRL = /[а-яёўқғҳъь]/i;
+const CV = 'аоуэеиёюяў';
+const isUp = c => !!c && c === c.toUpperCase() && c !== c.toLowerCase();
+
+const L2C = {a:'а',b:'б',c:'ц',d:'д',f:'ф',g:'г',h:'ҳ',i:'и',j:'ж',k:'к',l:'л',m:'м',n:'н',o:'о',p:'п',q:'қ',r:'р',s:'с',t:'т',u:'у',v:'в',w:'в',x:'х',y:'й',z:'з'};
+const C2L = {'а':'a','б':'b','в':'v','г':'g','д':'d','ё':'yo','ж':'j','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'x','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ъ':"'",'ь':'','ы':'i','э':'e','ю':'yu','я':'ya','ў':'oʻ','қ':'q','ғ':'gʻ','ҳ':'h'};
+const N2O = {'ş':'sh','ç':'ch','ö':'oʻ','ğ':'gʻ'};
+
+/* Latin -> Cyrillic. strict: only U+02BB joins o/g (input came from the new alphabet, where ' is a tutuq). */
+function lat2cyr(s, strict) {
+  const join = strict ? /ʻ/ : APOS;
+  let r = '';
+  for (let i = 0; i < s.length;) {
+    const c = s[i], l = c.toLowerCase(), x = s[i + 1] || '', xl = x.toLowerCase();
+    let o, len = 1;
+    if ((l === 'o' || l === 'g') && x && join.test(x)) { o = l === 'o' ? 'ў' : 'ғ'; len = 2; }
+    else if ((l === 's' || l === 'c') && xl === 'h') { o = l === 's' ? 'ш' : 'ч'; len = 2; }   // digraphs before single letters
+    else if (l === 'y' && xl && 'oua'.includes(xl)) { o = {o:'ё',u:'ю',a:'я'}[xl]; len = 2; }
+    else if (l === 'y' && xl === 'e') {
+      const p = r.slice(-1).toLowerCase();
+      o = (!CYRL.test(p) || CV.includes(p)) ? 'е' : 'йе'; len = 2;
+    }
+    else if (l === 'e') {
+      const p = r.slice(-1).toLowerCase();
+      o = (!CYRL.test(p) || CV.includes(p)) ? 'э' : 'е';
+    }
+    else if (APOS.test(c)) o = 'ъ';
+    else if (L2C[l]) o = L2C[l];
+    else { r += c; i++; continue; }
+    if (isUp(c)) o = (len > 1 && isUp(x)) ? o.toUpperCase() : o[0].toUpperCase() + o.slice(1);
+    r += o; i += len;
+  }
+  return r;
+}
+
+/* Cyrillic -> legacy Latin (with U+02BB) */
+function cyr2old(s) {
+  let r = '';
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i], l = c.toLowerCase();
+    let o;
+    if (l === 'е') {
+      const p = (s[i - 1] || '').toLowerCase();
+      o = (!CYRL.test(p) || CV.includes(p) || 'ъь'.includes(p)) ? 'ye' : 'e';   // Ye: word start / after vowel
+    } else if (Object.prototype.hasOwnProperty.call(C2L, l)) o = C2L[l];
+    else { r += c; continue; }
+    if (isUp(c) && o) {
+      const nu = isUp(s[i - 1] || '') || isUp(s[i + 1] || '');
+      o = (o.length === 1 || nu) ? o.toUpperCase() : o[0].toUpperCase() + o.slice(1);
+    }
+    r += o;
+  }
+  return r;
+}
+
+/* New Latin (Ş Ç Ö Ğ) -> legacy Latin */
+function newToOld(s) {
+  return s.replace(/[ŞşÇçÖöĞğ]/g, (m, i, str) => {
+    const l = m.toLowerCase(), o = N2O[l];
+    if (l === m) return o;
+    const nu = isUp(str[i - 1] || '') || isUp(str[i + 1] || '');
+    return (o.length > 1 && nu) ? o.toUpperCase() : o[0].toUpperCase() + o.slice(1);
+  });
+}
+
+/* Legacy Latin -> New Latin. Digraphs (sh, ch, o', g') are matched in one left-to-right pass, before single letters. */
+const RX_LOOSE = /([sc])h|([og])['ʻʼ‘’`´ʹ]/gi;
+const RX_STRICT = /([sc])h|([og])ʻ/gi;
+function oldToNew(s, strict) {
+  return s.replace(strict ? RX_STRICT : RX_LOOSE, (m, a, b) => {
+    const ch = a ? ({s:'ş',c:'ç'})[a.toLowerCase()] : ({o:'ö',g:'ğ'})[b.toLowerCase()];
+    return isUp(a || b) ? ch.toUpperCase() : ch;
+  }).replace(/[ʼ‘’`´ʹʻ]/g, "'");
+}
+
+/* Pivot through legacy Latin */
+function convert(t, f, g) {
+  if (f === g) return t;
+  const strict = f !== 'old';
+  const old = f === 'cyr' ? cyr2old(t) : f === 'new' ? newToOld(t) : t;
+  return g === 'cyr' ? lat2cyr(old, strict) : g === 'new' ? oldToNew(old, strict) : old;
+}
+
+function detect(t) {
+  const c = (t.match(/[\u0400-\u04FF]/g) || []).length;
+  const l = (t.match(/[A-Za-zŞşÇçÖöĞğ]/g) || []).length;
+  if (c > l) return 'cyr';
+  if (/[ŞşÇçÖöĞğ]/.test(t)) return 'new';
+  return 'old';
+}
+
+/* ============ Interface languages ============ */
+const T = {
+  uz: {title:'YangiLotin.uz', badge:'Yangi lotin - Eski lotin - Kirill yozuvlari konventori', from:'Qayerdan', to:'Qayerga',
+    auto:'Avto', cyr:'Кирилл', old:'Eski Lotin', new:'Yangi Lotin', detAuto:'Aniqlandi: ', detSrc:'', detNone:'Avto-aniqlash',
+    example:'Misol', upload:'.txt yuklash', clear:'Tozalash', swap:'Almashtirish', copy:'Nusxalash', copied:'Nusxalandi!', dl:'Yuklab olish (.txt)', chars:'belgi',
+    phIn:'Matnni shu yerga yozing yoki joylashtiring.', phOut:'Oʻgirilgan matn shu yerda chiqadi.', letters:'Yangi harflar:',
+    subNew:'2026 islohoti: Ş, Ç, Ö, Ğ', subOld:'1995 standarti: Sh, Ch, Oʻ, Gʻ', subCyr:'Ў, Ғ, Ш, Ч, Ё, Ю, Я',
+    footer:'Barcha amallar faqat brauzeringizda bajariladi. Matn serverga yuborilmaydi. © 2026 YangiLotin.uz', dark:'Qorongʻi', light:'Yorugʻ'},
+  cy: {title:'YangiLotin.uz', badge:'Yangi lotin - Eski lotin - Kirill yozuvlari konventori', from:'Қаердан', to:'Қаерга',
+    auto:'Авто', cyr:'Кирилл', old:'Эски Лотин', new:'Янги Лотин', detAuto:'Аниқланди: ', detSrc:'', detNone:'Авто-аниқлаш',
+    example:'Мисол', upload:'.txt юклаш', clear:'Тозалаш', swap:'Алмаштириш', copy:'Нусхалаш', copied:'Нусхаланди!', dl:'Юклаб олиш (.txt)', chars:'белги',
+    phIn:'Матнни шу ерга ёзинг ёки жойлаштиринг.', phOut:'Ўгирилган матн шу ерда чиқади.', letters:'Янги ҳарфлар:',
+    subNew:'2026 ислоҳоти: Ş, Ç, Ö, Ğ', subOld:'1995 стандарти: Sh, Ch, Oʻ, Gʻ', subCyr:'Ў, Ғ, Ш, Ч, Ё, Ю, Я',
+    footer:'Барча амаллар фақат браузерингизда бажарилади. Матн серверга юборилмайди. © 2026 YangiLotin.uz', dark:'Қоронғи', light:'Ёруғ'},
+  ru: {title:'YangiLotin.uz', badge:'Конвертер для новолатинского, старолатинского и кириллического письма', from:'Из', to:'В',
+    auto:'Авто', cyr:'Кириллица', old:'Старая латиница', new:'Новая латиница', detAuto:'Определено: ', detSrc:'Источник: ', detNone:'Автоопределение',
+    example:'Пример', upload:'Загрузить .txt', clear:'Очистить', swap:'Поменять местами', copy:'Копировать', copied:'Скопировано!', dl:'Скачать (.txt)', chars:'симв.',
+    phIn:'Введите или вставьте текст здесь.', phOut:'Здесь появится результат.', letters:'Новые буквы:',
+    subNew:'Реформа 2026: Ş, Ç, Ö, Ğ', subOld:'Стандарт 1995: Sh, Ch, Oʻ, Gʻ', subCyr:'Ў, Ғ, Ш, Ч, Ё, Ю, Я',
+    footer:'Все действия выполняются только в вашем браузере. Текст не отправляется на сервер. © 2026 YangiLotin.uz', dark:'Тёмная', light:'Светлая'}
+};
+
+/* ============ UI ============ */
+const $ = id => document.getElementById(id);
+const FB = {cyr: 'new', new: 'cyr', old: 'new'};
+const S = {src: 'auto', tgt: 'new', lang: 'uz', eff: {src: 'old', tgt: 'new', out: ''}};
+const tr = k => T[S.lang][k];
+const ICONS = {
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  copy:'<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+  download:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+  upload:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>',
+  swap:'<path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+  globe:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'
+};
+const icon = n => `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n]}</svg>`;
+document.querySelectorAll('[data-i]').forEach(e => e.innerHTML = icon(e.dataset.i));
+
+function seg(el, opts, key) {
+  el.innerHTML = opts.map(v => `<button class="seg" data-v="${v}">${tr(v)}</button>`).join('');
+  el.onclick = e => { const b = e.target.closest('button'); if (b) { S[key] = b.dataset.v; render(); } };
+}
+
+function render() {
+  const t = $('in').value, det = detect(t);
+  const src = S.src === 'auto' ? det : S.src;
+  const tgt = (S.src === 'auto' && S.tgt === src) ? FB[src] : S.tgt;
+  const out = convert(t, src, tgt);
+  S.eff = {src, tgt, out};
+  $('out').value = out;
+  $('cnt').textContent = t.length.toLocaleString() + ' ' + tr('chars');
+  $('ocnt').textContent = out.length.toLocaleString() + ' ' + tr('chars');
+  $('det').textContent = t.trim() ? (S.src === 'auto' ? tr('detAuto') : tr('detSrc')) + tr(src) : tr('detNone');
+  for (const k of ['new', 'old', 'cyr']) $('q-' + k).textContent = convert(t, src, k);
+  $('srcBar').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === S.src));
+  $('tgtBar').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === tgt));
+}
+
+function setTheme(dark) {
+  document.documentElement.classList.toggle('dark', dark);
+  $('ticon').innerHTML = icon(dark ? 'sun' : 'moon');
+  $('tlabel').textContent = dark ? tr('light') : tr('dark');
+  try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+}
+
+function setLang(l) {
+  S.lang = l;
+  document.documentElement.lang = {uz: 'uz', cy: 'uz-Cyrl', ru: 'ru'}[l];
+  document.querySelectorAll('[data-t]').forEach(e => e.textContent = tr(e.dataset.t));
+  document.querySelectorAll('[data-ph]').forEach(e => e.placeholder = tr(e.dataset.ph));
+  $('lang').value = l;
+  seg($('srcBar'), ['auto', 'cyr', 'old', 'new'], 'src');
+  seg($('tgtBar'), ['cyr', 'old', 'new'], 'tgt');
+  setTheme(document.documentElement.classList.contains('dark'));
+  try { localStorage.setItem('uiLang', l); } catch (e) {}
+  render();
+}
+
+async function copyText(text, btn) {
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) { const a = document.createElement('textarea'); a.value = text; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); }
+  const lb = btn.querySelector('.lb');
+  if (lb) { lb.textContent = tr('copied'); setTimeout(() => lb.textContent = tr('copy'), 1400); }
+}
+
+/* Quick-insert reform letters at the caret */
+for (const ch of ['Ö', 'ö', 'Ğ', 'ğ', 'Ş', 'ş', 'Ç', 'ç']) {
+  const b = document.createElement('button');
+  b.className = 'btn lt'; b.type = 'button'; b.textContent = ch; b.title = ch;
+  b.onmousedown = e => e.preventDefault();          // keep caret and focus in the textarea
+  b.onclick = () => {
+    const el = $('in');
+    el.setRangeText(ch, el.selectionStart, el.selectionEnd, 'end');
+    el.focus(); render();
+  };
+  $('letters').appendChild(b);
+}
+
+let raf = 0;
+$('in').addEventListener('input', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(render); });
+$('clear').onclick = () => { $('in').value = ''; render(); $('in').focus(); };
+$('sample').onclick = () => { $('in').value = 'Ҳар бир инсон ўз ҳуқуқ ва эркинликларини билиши муҳим. Янги алифбо қоидаларига мувофиқ матнларни ўтказиш жуда осон ва қулай.'; render(); };
+$('copy').onclick = e => copyText(S.eff.out, e.currentTarget);
+$('dl').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([S.eff.out], {type: 'text/plain;charset=utf-8'}));
+  a.download = 'uzbek-' + S.eff.tgt + '.txt';
+  a.click(); URL.revokeObjectURL(a.href);
+};
+$('swap').onclick = () => {
+  const {src, tgt, out} = S.eff;
+  $('in').value = out; S.src = tgt; S.tgt = src; render();
+};
+$('file').onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => { $('in').value = r.result; render(); };
+  r.readAsText(f, 'utf-8'); e.target.value = '';
+};
+document.querySelectorAll('.qcopy').forEach(b => b.onclick = () => copyText($(b.dataset.tEl).textContent, b));
+$('theme').onclick = () => setTheme(!document.documentElement.classList.contains('dark'));
+$('lang').onchange = e => setLang(e.target.value);
+
+/* Startup: saved choices first, then system preferences */
+let savedTheme = null, savedLang = null;
+try { savedTheme = localStorage.getItem('theme'); savedLang = localStorage.getItem('uiLang'); } catch (e) {}
+document.documentElement.classList.toggle('dark', savedTheme ? savedTheme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches);
+setLang(T[savedLang] ? savedLang : 'uz');
+</script>
+</body>
+</html>
